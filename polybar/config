@@ -260,6 +260,8 @@ label = %date% %time%
 [module/volume]
 type = internal/volume
 
+;Soundcard to be used
+
 format-volume = <label-volume> <bar-volume>
 label-volume = VOL
 label-volume-foreground = ${root.foreground}

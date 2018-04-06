@@ -41,7 +41,11 @@ bindsym Mod1+Return exec i3-sensible-terminal
 bindsym Mod1+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym Mod1+d exec dmenu_run
+#bindsym Mod1+d exec dmenu_run
+
+#start rofi
+bindsym Mod1+d exec rofi -show run
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -207,7 +211,11 @@ exec --no-startup-id feh --randomize --bg-fill /home/tsuzuku/Dropbox/Pictures/An
 #Start Up Execs
 ########################################
 exec  polybar example
+exec  compton
 
+#######################################
+#Font
+#######################################
 #the following is required by siji
 exec xset +fp /home/tsuzuku/.fonts
 exec xset fp rehash

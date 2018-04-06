@@ -16,22 +16,23 @@
 
 utf8 = "on";
 
-servers = (
-  {
-    address = "unix.chat";
-    chatnet = "unixchat";
-    port = "6697";
-    use_ssl = "yes";
-    ssl_verify = "yes";
-    ssl_capath = "/etc/ssl/certs/";
-    autoconnect = "yes";
-  }
-);
+#servers = (
+# {
+#    address = "irc.freenode.net";
+#    chatnet = "freenode";
+#    port = "6697";
+#    use_sll = "yes";
+#    ssl_verify = "yes";
+#    ssl_capath = "/etc/ssl/certs";
+#    autoconnect = "yes";
+#  }
+#);
 
 chatnets = { unixchat = { type = "IRC"; nick = "neongold"; }; };
 
 channels = (
-  { name = "#unix"; chatnet = "unixchat"; autojoin = "Yes"; }
+  #{ name = "#unix"; chatnet = "unixchat"; autojoin = "Yes"; }
+  #{ name = "##c"; chatnet = "freenode"; autojoin = "Yes"; }
 );
 
 aliases = {
@@ -46,7 +47,7 @@ aliases = {
 };
 
 settings = {
-  core = { real_name = "neongold"; user_name = "neongold"; nick = "neongold"; };
+  core = { real_name = "Tsuzuku"; user_name = "Gr33ntea"; nick = "tsuzuku"; };
   "fe-text" = {
     actlist_sort = "refnum";
     term_force_colors = "yes";
@@ -54,7 +55,6 @@ settings = {
   };
   "fe-common/core" = {
     theme = "neongold.theme";
-    bell_beeps = "no";
     autolog_path = "/var/logs/irc/$tag/$0.log";
     autolog = "yes";
   };
@@ -76,3 +76,7 @@ statusbar = {
     };
   };
 };
+
+keyboard = {
+
+}
