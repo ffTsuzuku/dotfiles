@@ -224,7 +224,7 @@ exec xset fp rehash
 #Customization
 ########################################
 for_window [class="^.*"] border pixel 3
-gaps inner 30
-gaps outer 0
+gaps inner 10
+gaps outer 10
 
 #bindsym $Mod1+Return exec terminology

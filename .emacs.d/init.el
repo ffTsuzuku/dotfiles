@@ -23,3 +23,12 @@
 ;;C Mode Config
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq-default c-basic-offset 8)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;Plugins
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;Neotree
+(add-to-list 'load-path "~/.emacs.d/plugins/neotree")
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
