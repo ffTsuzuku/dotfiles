@@ -24,6 +24,9 @@ font pango:monospace 8
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn't scale on retina/hidpi displays.
 
+#Change Mod To Super for emacs compatibility
+set $mod Mod4
+
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up l
@@ -76,10 +79,10 @@ bindsym Mod1+Shift+Up move up
 bindsym Mod1+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod1+h split h
+bindsym Mod+h split h
 
 # split in vertical orientation
-bindsym Mod1+v split v
+bindsym Mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym Mod1+f fullscreen toggle

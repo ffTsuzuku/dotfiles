@@ -9,7 +9,12 @@
 (tool-bar-mode -1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;Disable the welcome menu
+;;Scratch Buffer Modifier
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq initial-buffer-choice "~/.emacs.d/welcome")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;Disable the welcome screen
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq inhibit-startup-screen t)
 
@@ -31,4 +36,4 @@
 ;;Neotree
 (add-to-list 'load-path "~/.emacs.d/plugins/neotree")
 (require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
+(global-set-key [f5] 'neotree-toggle)
