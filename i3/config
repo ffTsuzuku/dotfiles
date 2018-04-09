@@ -1,4 +1,4 @@
-# i3 config file (v4)
+# i3config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 #
@@ -25,7 +25,7 @@ font pango:monospace 8
 # font, it doesn't scale on retina/hidpi displays.
 
 #Change Mod To Super for emacs compatibility
-set $mod Mod4
+#set $mod Mod4
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -79,10 +79,10 @@ bindsym Mod1+Shift+Up move up
 bindsym Mod1+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod+h split h
+bindsym Mod4+Mod1+h split h
 
 # split in vertical orientation
-bindsym Mod+v split v
+bindsym Mod4+Mod1+v split v
 
 # enter fullscreen mode for the focused container
 bindsym Mod1+f fullscreen toggle
