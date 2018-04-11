@@ -18,7 +18,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Scratch Buffer Modifier
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq initial-buffer-choice "~/.emacs.d/welcome")
+(if (= (length command-line-args) 1)
+    (setq initial-buffer-choice
+      (lambda () (switch-to-buffer (find-file "~/.emacs.d/welcome")))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Disable the welcome screen
