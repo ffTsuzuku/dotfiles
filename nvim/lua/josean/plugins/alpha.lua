@@ -48,7 +48,9 @@ return {
                                .-+*%%%#**+++==+++**#%%%*+-:                               
                                      .:-===+++++==-:.                                     
                                                                                           
-                                                                              
+                          Leaves from the vine, drifting so slow. 
+                          Brave little soldier boy, comes marching home...
+
     ]]
 
     -- Set menu
