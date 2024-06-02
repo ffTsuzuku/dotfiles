@@ -5,6 +5,7 @@ return {
   opts = {
     options = {
       mode = "tabs",
+      numbers = "ordinal", -- This option shows the tab index as numbers
     },
   },
 }
