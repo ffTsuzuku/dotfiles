@@ -21,3 +21,14 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+keymap.set("n", "<leader>1", "<cmd>tabn 1<CR>", { desc = "Goto tab 1" })
+keymap.set("n", "<leader>2", "<cmd>tabn 2<CR>", { desc = "Goto tab 2" })
+keymap.set("n", "<leader>3", "<cmd>tabn 3<CR>", { desc = "Goto tab 3" })
+keymap.set("n", "<leader>4", "<cmd>tabn 4<CR>", { desc = "Goto tab 4" })
+keymap.set("n", "<leader>5", "<cmd>tabn 5<CR>", { desc = "Goto tab 5" })
+keymap.set("n", "<leader>6", "<cmd>tabn 6<CR>", { desc = "Goto tab 6" })
+keymap.set("n", "<leader>7", "<cmd>tabn 7<CR>", { desc = "Goto tab 7" })
+keymap.set("n", "<leader>8", "<cmd>tabn 8<CR>", { desc = "Goto tab 8" })
+keymap.set("n", "<leader>9", "<cmd>tabn 9<CR>", { desc = "Goto tab 9" })
+keymap.set("n", "<leader>0", "<cmd>tablast<CR>", { desc = "Goto last tab" })
