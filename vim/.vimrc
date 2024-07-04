@@ -34,6 +34,25 @@ nnoremap <leader>gg :Git<CR>
 nnoremap <leader>gd :Git diff<CR>
 nnoremap <leader>gc :Git commit<CR>
 
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+noremap <leader>fn :echo @%<CR> 
+
+nnoremap <leader>fr :NERDTreeFind<CR> m
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+nnoremap <leader>+ :vertical resize -10<CR>
+nnoremap <leader>- :vertical resize +10<CR>
 " Clipboard
 set clipboard+=unnamed  " use the clipboards of vim and win
 "set paste               " Paste from a windows or from vim
@@ -240,7 +259,7 @@ nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item
