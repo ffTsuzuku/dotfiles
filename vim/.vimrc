@@ -14,7 +14,7 @@ set cursorline
 set fillchars+=eob:\ 
 
 
-highlight CursorLine ctermbg=132
+highlight CursorLine ctermbg=60 ctermfg = white
 
 let mapleader = " " " map leader to Space
 
@@ -91,6 +91,10 @@ Plug 'safv12/andromeda.vim'
 Plug 'vim-scripts/ashen.vim'
 Plug 'rayes0/blossom.vim'
 Plug 'sonjapeterson/1989.vim'
+Plug 'nyoom-engineering/oxocarbon.nvim'
+Plug 'itsjunetime/rose-pine-vim'
+Plug 'mreinhardt/Seadragon'
+Plug 'svjunic/RadicalGoodSpeed.vim'
 call plug#end()
 
 " Theme Selection
