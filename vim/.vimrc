@@ -11,6 +11,9 @@ set ignorecase
 set nowrap
 set encoding=UTF-8
 set cursorline
+set fillchars+=eob:\ 
+
+
 highlight CursorLine ctermbg=132
 
 let mapleader = " " " map leader to Space
