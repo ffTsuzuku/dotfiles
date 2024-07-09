@@ -1,0 +1,14 @@
+{
+	"javascript.format.enable": true,
+	"javascript.format.semicolons": "remove",
+	"javascript.suggest.completeJSDocs": true,
+	"javascript.updateImportsOnFileMove.enabled": "prompt",
+	"prettier.printWidth": 80,
+	"prettier.semi": false,
+	"prettier.singleQuote": true,
+	"prettier.bracketSpacing": true,
+	"prettier.quoteProps": "as-needed",
+	"prettier.tabWidth": 2,
+	"prettier.trailingComma": "all",
+	"typescript.suggest.includeCompletionsWithSnippetText": true,
+}
