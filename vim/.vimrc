@@ -13,6 +13,10 @@ set encoding=UTF-8
 set cursorline
 set fillchars+=eob:\ 
 
+augroup tsx
+  autocmd!
+  autocmd FileType typescriptreact setlocal tabstop=2 shiftwidth=2
+augroup END
 
 highlight CursorLine ctermbg=60 ctermfg = white
 
@@ -45,6 +49,7 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 noremap <leader>fn :echo @%<CR> 
+noremap <leader>ft :echo &filetype<CR>
 
 nnoremap <leader>fr :NERDTreeFind<CR> m
 nmap <silent> <c-k> :wincmd k<CR>
@@ -53,10 +58,8 @@ nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 nnoremap <leader>+ :vertical resize -10<CR>
 nnoremap <leader>- :vertical resize +10<CR>
-" Clipboard
-set clipboard+=unnamed  " use the clipboards of vim and win
-"set paste               " Paste from a windows or from vim
-set go+=a               " Visual selection automatically copied to the clipboard
+vnoremap <leader>y "*y
+nnoremap <leader>pf :CocCommand prettier.formatFile<CR>
 
 call plug#begin()
 " UI
@@ -103,8 +106,11 @@ colorscheme everforest
 
 
 let g:coc_global_extensions = [
-  \ 'coc-tsserver'
-  \ ]
+  \ 'coc-tsserver',
+  \ 'coc-prettier',
+  \ 'coc-eslint',
+  \ 'coc-json',
+  \]
 
 
 " COC Bindings
