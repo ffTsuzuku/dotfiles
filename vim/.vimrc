@@ -122,6 +122,8 @@ Plug 'nyoom-engineering/oxocarbon.nvim'
 Plug 'itsjunetime/rose-pine-vim'
 Plug 'mreinhardt/Seadragon'
 Plug 'svjunic/RadicalGoodSpeed.vim'
+Plug 'hardhackerlabs/theme-vim', { 'as': 'hardhacker' }
+Plug 'foxoman/vim-helix'
 call plug#end()
 
 " Theme Selection
