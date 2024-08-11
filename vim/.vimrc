@@ -22,7 +22,8 @@ highlight CursorLine ctermbg=60 ctermfg = white
 
 let mapleader = " " " map leader to Space
 
-nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>ee :NERDTreeToggle<CR>
+nnoremap <leader>ef :NERDTreeFind<CR>
 nnoremap <leader>to :tabnew<CR>
 nnoremap <leader>tp :tabp<CR>
 nnoremap <leader>tn :tabn<CR>
@@ -37,6 +38,9 @@ nnoremap <leader>gs :Git status<CR>
 nnoremap <leader>gg :Git<CR>
 nnoremap <leader>gd :Git diff<CR>
 nnoremap <leader>gc :Git commit<CR>
+nnoremap <leader>gb :BlamerToggle<CR>
+
+nnoremap <leader>sf :ContextEnableWindow
 
 noremap <leader>1 1gt
 noremap <leader>2 2gt
@@ -51,7 +55,6 @@ noremap <leader>0 :tablast<cr>
 noremap <leader>fn :echo @%<CR> 
 noremap <leader>ft :echo &filetype<CR>
 
-nnoremap <leader>fr :NERDTreeFind<CR> m
 nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
@@ -59,12 +62,30 @@ nmap <silent> <c-l> :wincmd l<CR>
 nnoremap <leader>+ :vertical resize -10<CR>
 nnoremap <leader>- :vertical resize +10<CR>
 vnoremap <leader>y "*y
-nnoremap <leader>pf :CocCommand prettier.formatFile<CR>
+nnoremap <leader>pf :Neoformat<CR>
+
+
+nnoremap <leader>bt :BookmarkToggle<CR>
+nnoremap <leader>bp :BookmarkPrev<CR>
+nnoremap <leader>bn :BookmarkNext<CR>
+nnoremap <leader>bb :BookmarkShowAll<CR>
+nnoremap <leader>ba :BookmarkAnnotate<CR>
+nnoremap <leader>bc :BookmarkClearAll<CR>
+nnoremap <leader>ln :set number! relativenumber!<CR>
+
+
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin()
 " UI
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-fugitive'
+Plug 'APZelos/blamer.nvim'
+Plug 'wellle/context.vim'
 
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -77,11 +98,14 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
+
 " File Handling
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'sbdchd/neoformat'
+Plug 'MattesGroeger/vim-bookmarks'
 
 " Theme
 Plug 'liuchengxu/space-vim-dark'
@@ -101,6 +125,8 @@ Plug 'svjunic/RadicalGoodSpeed.vim'
 call plug#end()
 
 " Theme Selection
+" Note for some reason i need to set the theme to something else before
+" setting to everforest, otherwise the colors don't show properly
 colorscheme space-vim-dark
 colorscheme everforest
 
@@ -276,3 +302,46 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+" Prettier
+function! GetHomeDirectory()
+    let home_dir = expand('~')
+    return home_dir
+endfunction
+
+
+function! CheckAndInstallPackages()
+	let cwd = getcwd()
+    " Define the directory for npm packages (adjust if needed)
+	let config_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+    
+    " Change to the config directory
+    execute 'cd' config_dir
+
+    " Check if prettier is installed
+    if !filereadable('node_modules/.bin/prettier')
+        echo "prettier not found. Installing..."
+        silent !npm install prettier
+    endif
+
+    " Check if prettier-php is installed
+    if !filereadable('node_modules/@prettier/plugin-php/package.json')
+        echo "prettier-php not found. Installing..."
+        silent !npm install @prettier/plugin-php
+    endif
+	
+	execute 'cd' cwd
+endfunction
+
+call CheckAndInstallPackages()
+
+let config_dir = has('nvim') ? stdpath('data') . '/site' : GetHomeDirectory() . '/.vim'
+let prettierExe = config_dir . '/node_modules/.bin/prettier'
+"let g:neoformat_verbose = 1 
+let g:neoformat_enabled_php = ['prettier']
+let g:neoformat_php_prettier = {
+		\ 'exe': prettierExe,
+		\ 'args': ['--parser', 'php', '--config', './.prettierrc'],
+		\ 'stdin': 1,
+	  \ }
