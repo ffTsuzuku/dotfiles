@@ -40,7 +40,7 @@ nnoremap <leader>gd :Git diff<CR>
 nnoremap <leader>gc :Git commit<CR>
 nnoremap <leader>gb :BlamerToggle<CR>
 
-nnoremap <leader>sf :ContextEnableWindow
+nnoremap <leader>sf :ContextToggle<CR>
 
 noremap <leader>1 1gt
 noremap <leader>2 2gt
