@@ -1,0 +1,103 @@
+# ~/.aerospace.toml
+
+config-version = 2
+
+start-at-login = true
+
+# Keep Aerospace's normal tiling behavior sane.
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Default layout.
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+# Optional: mouse follows focused monitor.
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# Important:
+# Do NOT set persistent-workspaces if you only want workspaces
+# with windows to show up in your bar/status integration.
+persistent-workspaces = []
+
+[key-mapping]
+preset = 'qwerty'
+
+# Roughly 20px gaps between windows and screen edges.
+[gaps]
+inner.horizontal = 20
+inner.vertical = 20
+outer.left = 20
+outer.right = 20
+outer.top = 20
+outer.bottom = 20
+
+[mode.main.binding]
+
+# Layout controls
+# Alt-W: stack windows vertically / top-bottom
+alt-w = 'layout tiles vertical'
+
+# Alt-S: stack windows horizontally / side-by-side
+alt-s = 'layout tiles horizontal'
+
+# Workspace switching
+alt-a = 'workspace A'
+alt-b = 'workspace B'
+alt-c = 'workspace C'
+alt-m = 'workspace M'
+
+# Move current window to workspace
+alt-shift-a = ['move-node-to-workspace A', 'workspace A']
+alt-shift-b = ['move-node-to-workspace B', 'workspace B']
+alt-shift-c = ['move-node-to-workspace C', 'workspace C']
+alt-shift-m = ['move-node-to-workspace M', 'workspace M']
+
+# Optional navigation
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Reload / service mode
+alt-shift-semicolon = 'mode service'
+
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']
+f = ['layout floating tiling', 'mode main']
+
+
+# ----------------------------
+# App -> Workspace rules
+# ----------------------------
+
+# Safari -> Workspace B
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+run = 'move-node-to-workspace B'
+
+# Discord -> Workspace M
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = 'move-node-to-workspace M'
+
+# ChatGPT Desktop -> Workspace A
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = 'move-node-to-workspace A'
+
+# macOS Terminal -> Workspace C
+[[on-window-detected]]
+if.app-id = 'com.apple.Terminal'
+run = 'move-node-to-workspace C'
+
+# Ghostty -> Workspace C
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace C'
