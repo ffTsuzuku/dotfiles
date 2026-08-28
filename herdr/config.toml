@@ -1,0 +1,37 @@
+onboarding = false
+[keys]
+prefix = "`"
+new_workspace = "prefix+n"
+
+[[keys.command]]
+key = "prefix+shift+up"
+type = "shell"
+command = "python3 /home/deep/.config/herdr/move_workspace.py up"
+
+[[keys.command]]
+key = "prefix+shift+down"
+type = "shell"
+command = "python3 /home/deep/.config/herdr/move_workspace.py down"
+
+[theme]
+name = "dracula"
+auto_switch = false
+
+[ui.sound]
+enabled = false
+
+[ui.toast]
+delivery = "system"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+
+[session]
+resume_agents_on_restore = true
+
+[ui.sidebar.spaces]
+row_gap = 1
+rows = [
+  ["state_icon", "workspace"],
+  [{ token = "branch", fg = "#bd93f9", bold = true }, "git_status"]
+]
